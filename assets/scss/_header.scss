@@ -1,0 +1,215 @@
+/**
+* @Header
+*
+*/
+
+#header {
+	position: relative;
+	background-color: white;
+	z-index: 3000;
+	@include clearfix;
+
+	@include media( $mobile ) {
+		padding: 15px 0;
+	}
+
+	@include media( $tablet-up ) {
+		padding-top: 20px;
+
+		body.toggle-menu & {
+			padding-bottom: 20px;
+		}
+		
+	}
+
+	#logo {
+		display: block;
+		
+
+		a {
+			display: block;
+		}
+
+		#logo-image {
+			float: left;
+			margin-right: em(15px);
+			
+			img {
+				display: block;
+				height: em(88px);
+				width: auto;
+			}
+
+		}
+
+		#logo-text {
+			display: table-cell;
+			height: em(88px);
+			vertical-align: middle;
+
+			.website-title {
+				display: block;
+				font-family: $heading-font;
+				color: $color-1;
+				font-size: em(24px);
+				line-height: 1.2;
+				font-weight: lighter;
+				margin-bottom: em(3px, 24px);
+			}
+			
+			.website-payoff {
+				display: block;
+				color: $black;
+				font-size: em(14px);
+				line-height: 1.2;
+			}
+
+		}
+
+		@include media( $mobile ) {
+			font-size: 10px; // To scale down logo text and image
+			margin-bottom: 10px;
+		}
+
+		@include media( $tablet-up ) {
+			float: left;
+			width: 60%;
+		}
+
+	}
+
+	#header-contact {
+
+		@include media( $mobile ) {
+			text-align: center;
+
+			.contact-item {
+				display: inline-block;
+				margin-right: 15px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				i {
+					position: relative;
+					top: -1px;
+					color: $grey;
+					font-size: 16px;
+					margin-right: 4px;
+					vertical-align: middle;
+				}
+
+			}
+
+		}
+
+		@include media( $tablet-up ) {
+			float: right;
+			margin-left: 20px;
+		
+			.contact-item {
+				position: relative;
+				padding-left: 42px;
+				height: 32px;
+				line-height: 32px;
+				margin-bottom: 8px;
+				white-space: nowrap;
+
+				i {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: 32px;
+					height: 32px;
+					line-height: 32px;
+					border-radius: 50%;
+					color: white;
+					text-align: center;
+					background: $grey;
+				}
+
+			}
+		
+		}
+
+	}
+
+	#header-titles {
+
+		@include media( $tablet-down ) {
+			display: none;
+		}
+
+		@include media( $desktop ) {
+			padding-top: 10px;
+			margin: 0 auto;
+			text-align: center;
+
+			h4 {
+				color: $color-1;
+				font-size: 24px;
+			}
+
+			.payoff {
+				display: block;
+				color: $grey-dark;
+				font-family: $georgia;
+				font-size: 16px;
+				font-style: italic;
+				line-height: 1.2;
+
+				&:before,
+				&:after {
+					font-size: em(24px, 16px);
+					font-weight: bold;
+					line-height: 0.7;
+				}
+
+				&:before {
+					content: '“';
+				}
+				
+				&:after {
+					content: '”';
+				}
+
+			}
+
+		}
+
+	}
+
+	#header-buttons {
+		
+		@include media( $mobile ) {
+
+			#header-buttons-holder { 
+				clear: both;
+
+				.button {
+					font-size: 11px;
+					margin: 0 3px 3px;
+				}
+
+			}
+
+		}
+
+		@include media( $tablet-up ) {
+			float: right;
+			text-align: right;
+			max-width: 40%;
+
+			#header-buttons-holder {
+				display: table-cell;
+				height: em(88px);
+				vertical-align: middle;
+			}
+
+		}
+
+	}
+
+}

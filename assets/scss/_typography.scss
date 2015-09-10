@@ -1,0 +1,203 @@
+/* 
+* @font-face
+* Define custom fonts
+*/
+
+@font-face {
+font-family: 'FontAwesome';
+src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), 
+	 url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), 
+	 url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), 
+	 url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), 
+	 url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+	
+	// SVG font on -webkit- browsers
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+	
+		@font-face {
+		font-family: 'FontAwesome';
+		src: url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		}
+
+	}
+	
+
+
+/* 
+* Typography
+* Define basic typography styling
+*/
+
+// Headings
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h1 a, 
+h2 a, 
+h3 a, 
+h4 a, 
+h5 a {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+h1 {
+	margin-bottom: em(20px, 36px);
+	color: $color-1;
+	font-family: $heading-font;
+	font-size: em(36px);
+	font-weight: lighter;
+	line-height: 1.2;
+}
+
+h2 {
+	margin-bottom: em(10px, 24px);
+	color: $color-1;
+	font-family: $heading-font;
+	font-size: em(24px);
+	font-weight: lighter;
+	line-height: 1.2;
+}
+
+h3 {
+	margin-bottom: em(5px, 18px);
+	color: $color-1;
+	font-family: $heading-font;
+	font-size: em(18px);
+	font-weight: lighter;
+	line-height: 1.2;
+}
+
+h4 {
+	margin-bottom: em(5px, 16px);
+	color: $color-1;
+	font-family: $heading-font;
+	font-size: em(16px);
+	font-weight: lighter;
+	line-height: 1.2;
+}
+
+.h1 {
+@extend h1;
+}
+
+.h2 {
+@extend h2;
+}
+
+.h3 {
+@extend h3;
+}
+
+.h4 {
+@extend h4;
+}
+
+// Single post adjustments
+
+body.single-post {
+
+	h1 {
+	font-size: em(26px);
+	}
+
+	h2 {
+	font-size: em(22px);
+	}
+
+}
+
+.page-header {
+	padding: 10px 0;
+	border-top: 1px solid $grey;
+	border-bottom: 1px solid $grey;
+	margin-bottom: em(30px);
+	@include clearfix;
+
+	.page-header-title {
+		display: block;
+		color: $grey-dark;
+		font-size: 1em;
+		font-weight: normal;
+		margin-bottom: 0;
+	}
+
+	.read-more {
+		float: right;
+		line-height: 1.2;
+	}
+
+}
+
+// Font Styles
+
+p {
+	padding-bottom: em(28px);
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+}
+
+blockquote {
+	color: $black;
+	font-size: em(16px);
+	padding-bottom: em(20px, 16px);
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+	
+}
+
+.screen-reader-text {
+	display: none;
+}
+
+// Links
+
+a {
+	text-decoration: none;
+	color: $color-2;
+	@include transition(color .15s ease);
+
+	&:hover,
+	&:focus {
+		color: lighten($color-2, 20%);
+	}
+	
+	p & {
+		color: blue;
+		font-weight: bold;
+		
+		&:hover,
+		&:focus {
+			color: blue;
+			text-decoration: underline;
+		}
+	
+	}
+
+}
+
+// .read-more {
+// color: $color-2;
+
+// 	&:hover,
+// 	&:focus {
+// 	color: lighten($color-2, 20%);
+// 	}
+
+// }

@@ -1,0 +1,26 @@
+.section-cols {
+
+	.cols {
+		@include clearfix;
+
+		h2 {
+
+			&.has-icon {
+				position: relative;
+				padding-left: 40px;
+
+				i {
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: $black;
+					font-size: 24px;
+				}
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,533 @@
+
+*,
+*:before,
+*:after {
+	@include box-sizing(border-box);
+}
+
+
+/* @Body */
+
+body {
+	text-align: left;
+	color: $black;
+	font-family: $font;
+	line-height: 1.45;
+	background: white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	@include media( $mobile ) {
+		padding-top: 0 !important;
+		font-size: $mobile-font-size;
+	}
+
+	@include media( $tablet ) {
+		font-size: $tablet-font-size;
+	}
+
+	@include media( $desktop ) {
+		font-size: $desktop-font-size;
+	}
+
+}
+
+
+/* @Images */
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+
+/* @Selection */
+
+::selection {
+	color: white;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	background: rgba($color-1, 0.8);
+}
+
+::-moz-selection {
+	color: white;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	background: rgba($color-1, 0.8);
+}
+
+
+
+/* @Lists */
+
+ul.content-ul {
+	margin-bottom: 20px;	
+
+	li {
+		position: relative;
+		list-style: none;
+		padding: em(5px) 0 em(5px) em(15px);
+		line-height: 1.2;
+
+		&:before {
+			content: '-';
+			position: absolute;
+			top: em(5px);
+			left: em(3px);
+		}
+
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+ol {
+	margin: 0 0 20px 40px;
+
+	li {
+		list-style-type: decimal;
+		margin: 0;
+		padding: 0;
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+
+/**
+* @Clear
+*
+*/
+
+.clear {
+	clear: both;
+}
+
+
+/**
+* @Styling classes
+*
+*/
+
+.translate-y {
+	position: relative;
+	// @include transform( translateY(-50%) );
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	// Fallback with jQuery
+}
+
+
+/**
+* @Wrapper
+*
+*/
+
+#wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.wrap {
+	@include wrap;
+}
+
+
+/**
+* @Columns
+*
+*/
+
+.content.content { // better than !important
+
+	.section-content {
+		padding: em(30px) 0;
+	}
+
+	.main,
+	.sidebar {
+		@include clearfix;
+		
+		// layout in main fix
+		.wrap {
+			padding: 0;
+		}
+		
+		.section.content {
+			
+			&:first-child {
+				
+				.section-content {
+					padding-top: 0;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	/* Sidebar Left */
+
+	@include media($tablet-down) {
+
+		.main {
+			margin-bottom: 30px
+		}
+
+	}
+	
+	@include media($desktop) {
+		
+		.main {
+			float: left;
+			width: p(646px);
+
+			&.full-width {
+				width: 100%;
+				float: none;
+			}
+
+		}
+		
+		.sidebar {
+			float: right;
+			width: p(320px);
+		}
+		
+	}
+
+}
+
+
+/**
+* @Breadcrumb
+*
+*/
+
+#breadcrumb {
+	//margin: 0 0 em(10px) 0;
+	padding: 12px 0;
+	color: $grey-dark;
+	text-transform: uppercase;
+	font-size: 11px;
+
+	.wrap {
+			
+		.divider {
+			display: inline-block;
+			margin-right: 0.5em;
+		}
+
+		> span {
+			display: block;
+		
+			> span {
+				display: inline-block;
+				margin-right: 0.5em;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+			}
+
+			.breadcrumb-label {
+			
+			}
+
+		}
+
+		a {
+			color: $color-2;
+			text-decoration: none;
+		
+			&:hover {
+				color: $color-2;
+				text-decoration: underline;
+			}
+		
+		}
+
+	}
+
+	// Breadcrumb color variations
+
+	&.white-background {
+		background: white;
+		border-bottom: 1px solid $grey;
+	}
+
+	&.light-background {
+		background: $grey-light;
+	}
+	
+	&.dark-background {
+		background: $black;
+
+		a {
+			color: $grey-light;
+		
+			&:hover {
+				color: $grey-light;
+			}
+		
+		}
+
+	}
+
+}
+
+
+/**
+* @Blog
+*
+*/
+
+.blog-post {
+	margin-bottom: em(30px);
+	padding-bottom: em(28px);
+	border-bottom: 1px solid $grey;
+	@include clearfix;
+
+	&:last-child {
+		margin-bottom: 0;
+		padding-bottom: em(10px);
+		border-bottom: none;
+	}
+	
+	.post-header {
+		margin-bottom: 15px;
+	
+		h2 {
+			margin-bottom: 3px;
+		}
+
+		.post-meta {
+			padding: 0;
+			font-size: em(13px);
+			font-weight: lighter;
+
+			.meta-item {
+				display: inline-block;
+			}
+
+		}
+		
+		ul.post-categories {
+			display: inline-block;
+			
+			li {
+				display: inline-block;
+				
+				&:after {
+					content: ',';
+				}
+				
+				&:last-child {
+					
+					&:after {
+						display: none;
+					}
+					
+				}
+				
+			}
+			
+		}
+
+	}
+	
+	.post-image {
+
+		@include media($mobile) {
+			//float: right;
+			width: p(80px, 300px);
+			//margin-left: 15px;
+			margin-bottom: 15px;
+		}
+
+		@include media($tablet-up) {
+			float: left;
+			width: p(170px, 660px);
+			max-width: 170px;
+			margin-right: em(28px);
+		}
+		
+		a {
+			display: block;
+			
+			img {
+				display: block;
+				@include transition(opacity .15s ease);
+				@include z;
+			}
+				
+			&:hover {
+				
+				img {
+					@include opacity(0.8);
+				}
+				
+			}
+		
+		}
+	
+	}
+	
+	@include media($tablet-up) {
+
+		.post-text {
+
+			p {
+				padding-bottom: 1.5em;
+			}
+
+		}
+
+		&.has-image {
+
+			.post-text {
+				display: table-cell;
+				height: 165px;
+				vertical-align: middle;
+			}
+
+		}
+
+	}
+
+}
+
+.read-more-holder {
+	margin-top: -10px;
+	text-align: right;
+}
+
+
+/**
+* @Blog - Single
+*
+*/
+
+.single-post-header {
+	margin-bottom: em(25px);
+
+	h1 {
+		margin-bottom: em(15px, 36px);
+	}
+
+	.post-date {
+		font-size: em(13px);
+	}
+
+}
+
+.single-post-image {
+	margin-bottom: em(25px);
+
+	img {
+		display: block;
+	}
+
+}
+
+#post-navigation {
+	padding-top: 20px;
+}
+
+.share-post {
+	padding: em(15px) 0;
+
+	.share-label {
+		color: $grey-dark;
+		vertical-align: middle;
+
+		@include media( $mobile ) {
+			display: block;
+			margin-bottom: 6px;
+
+			&:after {
+				content: ':';
+			}
+
+		}
+
+		@include media( $tablet-up ) {
+			display: inline-block;
+			margin-right: 15px;
+		}
+
+	}
+
+	.share-buttons {
+		vertical-align: middle;
+
+		.share-button {
+			height: 20px;
+			vertical-align: middle;
+			display: inline-block;
+			margin-right: 8px;
+		}
+
+		@include media( $tablet-up ) {
+			display: inline-block;
+		}
+
+	}
+
+}
+
+
+/**
+* @ Lightbox
+*
+*/
+
+.zoom {
+	cursor: -webkit-zoom-in; 
+	cursor: -moz-zoom-in;
+	
+	img {
+		@include z;
+		@include transition(opacity 0.25s ease);
+	}
+	
+	&:hover,
+	&:focus {
+		
+		img {
+			@include opacity(0.8);
+		}
+		
+	}
+	
+}
+
+
+/**
+* @Colors - Brandguide
+*
+*/
+
+.content .color {
+width: em(60px);
+height: em(60px);
+margin-right: em(30px);
+margin-bottom: em(30px);
+float: left;
+border: em(3px, 14px) solid white;
+box-shadow: 0px 0px em(6px, 14px) rgba(0, 0, 0, 0.2);
+}

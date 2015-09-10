@@ -1,0 +1,376 @@
+/* 
+* Bottom
+* 
+*/
+
+#bottom {
+	position: relative;
+	margin-top: -2px; // to position over the border bottom of .section
+	padding: em(25px) 0;
+	color: $grey-dark;
+	font-size: em(13px);
+	@include clearfix;
+
+	h3 {
+		margin-bottom: 10px;
+		font-weight: normal;
+	}
+
+	a {
+		color: $color-1;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+	.footer-widget {
+
+		@include media($mobile) {
+			margin-bottom: 22px;
+
+			&.last {
+				margin-bottom: 0;
+			}
+			
+		}
+
+		@include media($tablet-up) {
+			@include col(4, 3%);
+			float: left;
+
+			&.last {
+				margin-right: 0;
+			}
+
+		}
+
+		&.footer-navigation {
+
+			ul {
+
+				li {
+					position: relative;
+					list-style: none;
+					padding: em(5px) 0 em(5px) em(15px);
+					line-height: 1.2;
+
+					&:before {
+						@extend .fa:before;
+						@extend .fa-angle-right:before;
+						position: absolute;
+						top: em(5px);
+						left: em(3px);
+						font-size: 14px;
+						color: $color-1;
+					}
+
+					a {
+						color: $grey-dark;
+					}
+
+					&.current-menu-item {
+						text-decoration: underline;
+					}
+
+				}
+
+			}
+
+		}
+
+		ul.contact-information {
+			
+			li {
+				padding: 5px 0;
+				line-height: 1.2;
+				
+				a {
+					display: inline-block;
+					border-bottom: 1px dotted;
+					
+					&:hover {
+						text-decoration: none;
+					}
+					
+				}
+				
+			}
+
+		}
+
+	}
+
+	// Bottom color variations
+
+	&.white-background {
+		background: white;
+		border-top: 1px solid $grey;
+		border-bottom: 1px solid $grey;
+
+		.newsletter + & {
+			border-top: none;
+		}
+
+	}
+
+	&.light-background {
+		background: $grey-light;
+	}
+	
+	&.dark-background {
+		color: white;
+		background: $black;
+
+		h3 {
+			color: inherit;
+		}
+
+		a {
+			color: inherit;
+		}
+
+		.footer-widget {
+
+			&.footer-navigation {
+
+				ul {
+
+					li {
+						
+						a {
+							color: white;
+						}
+
+					}
+
+				}
+
+			}
+		
+		}
+
+	}
+
+}
+
+
+/* 
+* Bottom bar
+* 
+*/
+
+#bottom-bar {
+	padding: 0.5em 0;
+	color: $grey-dark;
+	font-size: em(13px);
+	border-bottom: 1px solid $grey;
+	@include clearfix;
+
+	#bottom-social-media {
+
+		@include media ($mobile) {
+			margin-bottom: 1em;
+		}
+		
+		@include media ($tablet-up) {
+			padding: 7px 0;
+			float: left;
+		}
+		
+		.social-media-label {
+			padding: 12px 0;
+
+			@include media($mobile) {
+				display: block;
+				margin-right: 0;
+				text-align: center;
+			}
+
+			@include media($tablet-up) {
+				margin-right: 1.5em;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+		}
+
+		.social-media-links {
+
+			@include media($mobile) {
+				display: block;
+				text-align: center;
+
+				a {
+					display: inline-block;
+					float: none;
+					margin: 5px;
+				}
+
+			}
+
+			@include media($tablet-up) {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+		}
+
+	}
+
+	#bottom-logos {
+		@include clearfix;
+
+		@include media($mobile) {
+			text-align: center;
+
+			img {
+				display: inline-block;
+				margin: 0 0.5em 0.5em;
+			}
+
+		}
+
+		@include media ($tablet-up) {
+			float: right;
+
+			img {
+				float: left;
+				margin-right: 0.5em;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/* 
+* Footer
+* 
+*/
+
+#footer {
+	position: relative;
+	width: 100%;
+	padding: 16px 0;
+	color: $grey-dark;
+	font-size: em(13px);
+	background-color: white;
+	@include clearfix;
+
+	p {
+		padding-bottom: 0;
+	
+		&#credits {
+			color: $color-1;
+			font-family: $heading-font;
+			font-weight: 600;
+
+			@include media( $mobile ) {
+			text-align: center;
+			margin-bottom: 12px;
+			}
+
+			@include media( $tablet-up ) {
+			float: left;
+			}
+
+		}
+		
+	}
+
+	#footer-navigation {
+
+		@include media( $mobile ) {
+		text-align: center;
+		}
+
+		@include media( $tablet-up ) {
+		float: right;
+		}
+
+		ul {
+	
+			li {
+				display: inline-block;
+
+				&:before {
+					content: '/';
+				}
+
+				&:first-child {
+
+					&:before {
+						display: none;
+					}
+
+				}
+
+				&.current-menu-item {
+
+					a {
+						color: $color-2;
+						text-decoration: underline;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/* 
+* Sponsor links
+* 
+*/
+
+#sponsors {
+	padding: em(20px, 13px) 0;
+	font-size: em(13px);
+	background: darken($grey-light, 5%);
+	@include clearfix;
+	    	
+	.label {
+		display: inline-block;
+		margin-right: 1em;
+		vertical-align: middle;
+	}
+	
+	.divider {
+		display: inline-block;
+		margin: 0 0.5em;
+	}
+	
+	.sponsor-link-button {
+		display: inline-block;
+		line-height: 1.2;
+		vertical-align: middle;
+		color: $grey-dark;
+		//background: white;
+		border-radius: $radius;
+		@include transition(color 0.25s ease);
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&:hover {
+			color: $color-1;
+		}
+		
+	}
+	
+}

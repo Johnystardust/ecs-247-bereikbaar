@@ -1,0 +1,47 @@
+/**
+* @WP-PageNavi
+* Default style for WP-PageNavi plugin http://wordpress.org/extend/plugins/wp-pagenavi/
+*/
+
+.wp-pagenavi {
+	padding-top: em(15px);
+	padding-bottom: em(5px);
+	clear: both;
+
+	a, 
+	span {
+		display: inline-block;
+		text-decoration: none;
+		padding: em(7px) em(10px); 
+		margin: 0 em(5px) em(5px) 0;
+		line-height: 1.2;
+		@include transition(all 0.15s ease);
+	}
+	
+	a {
+		color: white;
+		font-weight: bold;
+		background: $color-2;
+		
+		&:hover {
+			color: white;
+			background: lighten($color-2, 10%);
+		}
+	
+	}
+	
+	span {
+	
+		&.current {
+			color: white;
+			font-weight: bold;
+			background: $color-1;
+		}
+		
+		&.pages {
+			color: $grey-dark;
+		}
+		
+	}
+
+}

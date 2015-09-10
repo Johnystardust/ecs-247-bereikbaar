@@ -1,0 +1,1 @@
+<p><?php _e( 'Helaas, er zijn geen resultaten gevonden.', 'ecs-corporate' ) ?></p>

@@ -1,0 +1,124 @@
+// Product - loop
+
+#products {
+	
+	.product {
+		position: relative;
+		
+		@include media($mobile) {
+			width: 48%;
+			margin-right: 4%;
+			margin-bottom: 3%;
+			float: left;
+			
+			&.mobile-last {
+				margin-right: 0;
+				
+				+ .product {
+					clear: left;
+				}
+				
+			}
+			
+		}
+		
+		@include media($tablet) {
+			width: 32%;
+			margin-right: 2%;
+			margin-bottom: 3%;
+			float: left;
+			
+			&.tablet-last {
+				margin-right: 0;
+				
+				+ .product {
+					clear: left;
+				}
+				
+			}
+			
+		}
+		
+		@include media($desktop) {
+			width: 22%;
+			margin-right: 4%;
+			margin-bottom: 3%;
+			float: left;
+			
+			&.desktop-last {
+				margin-right: 0;
+				
+				+ .product {
+					clear: left;
+				}
+				
+			}
+		
+		}		
+			
+		.product-photo {
+			display: block;
+			border: em(5px) solid lighten($grey, 8%);
+			margin-bottom: em(12px);
+			@include transition(border 0.15s ease-in-out);
+			
+			img {
+				display: block;
+			}
+			
+			&:hover,
+			&:focus {
+				border-color: $color-2;
+			}
+			
+		}
+			
+		.member-title {
+			display: block;
+			
+			h3 {
+				font-weight: normal;
+				@include transition(color 0.15s ease-in-out);
+			}
+			
+			&:hover,
+			&:focus {
+				
+				h3 {
+					color: $color-2;	
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+// Product - single
+
+.product-image {
+	display: inline-block;
+	border: em(5px) solid lighten($grey, 8%);
+	
+	@include media ($mobile) {
+		margin-bottom: em(15px);
+	}
+	
+	@include media ($tablet-up) {
+		width: p(320px);
+		margin-right: p(25px);
+		float: left;
+	}
+	
+	img {
+		display: block;
+	}
+	
+}
+						
+.product-text {
+	display: table-cell;
+}

@@ -1,0 +1,1 @@
+<p><?php _e( 'Uw zoekopdracht leverde geen resultaten op.', 'ecs-corporate' ); ?></p>

@@ -1,0 +1,117 @@
+.testimonial {
+	margin-bottom: 15px;
+	clear: both;
+}
+
+.testimonial-text {
+	display: table-cell;
+	width: $wrap;
+}
+
+.testimonial-content {
+	position: relative;
+	//padding: 0 0 em(20px) em(20px);
+	
+	p {
+		// font-family: $quote-font;
+		font-size: em(16px);
+		font-style: italic;
+		padding-bottom: 1em;
+	}
+
+}
+
+.testimonial-author {
+	font-weight: 600;
+	padding-top: 3px;
+}
+
+.author-rating {
+	margin-bottom: 10px;
+	@include clearfix;
+}
+	
+.rating-stars {
+	position: relative;
+	width: 116px;
+	height: 23px;
+	background: tint($color-2, 80%) url('../images/theme/bg-stars-clip.png') no-repeat left top;
+	@include retina('../images/theme/bg-stars-clip@2x.png', 116px, 23px);
+
+	.star-filler {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		background: $color-2 url('../images/theme/bg-stars-clip.png') no-repeat left top;
+		@include retina('../images/theme/bg-stars-clip@2x.png', 116px, 23px);
+	}
+}
+
+.author-image {
+	float: left;
+	margin: 0 em(20px) em(20px) 0;
+	width: 100px;
+	
+	@include media( $mobile ) {
+	    width: 20%;
+	    margin-right: 3.125%;
+	}
+
+	img {
+		display: block;
+	}
+
+}
+
+
+/**
+* @Testimonial - Archive
+*
+*/
+
+.testimonial-post {
+	@include clearfix;
+
+	@include media($mobile) {
+		margin-bottom: 3.125%;
+	}
+
+	@include media($tablet-up) {
+		float: left;
+		@include col(2, 3.125%);
+		margin-bottom: 3.125%;
+
+		&.last {
+			margin-right: 0;
+
+			+ .testimonial-post {
+				clear: left;
+			}
+
+		}
+
+	}
+	
+	a {
+		display: block;
+		
+		img {
+			display: block;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+			@include transition(opacity .15s ease);
+			@include z;
+		}
+			
+		&:hover {
+			
+			img {
+				@include opacity(0.8);
+			}
+			
+		}
+	
+	}
+
+}

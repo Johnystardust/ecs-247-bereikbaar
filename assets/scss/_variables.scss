@@ -1,0 +1,200 @@
+// Variables
+
+$black: #4A4A4A;
+$grey: #D8D8D8;
+$grey-light: #F8F8F8;
+$grey-dark: #A0A0A0;
+
+$wrap: 1000px;
+
+$mobile-font-size: 13px;
+$tablet-font-size: 13px;
+$desktop-font-size: 14px;
+
+
+// Bourbon Neat Breakpoints
+
+$mobile-small:  new-breakpoint(max-width 480px);
+$mobile:  		new-breakpoint(max-width 640px);
+$tablet:        new-breakpoint(min-width 641px max-width 859px);
+$desktop:       new-breakpoint(min-width 860px);
+$desktop-large: new-breakpoint(min-width 1140px);
+
+$tablet-down:   new-breakpoint(max-width 859px);
+$tablet-up:  	new-breakpoint(min-width 641px);
+
+$mobile-up:     new-breakpoint(min-width 481px);
+
+
+// Functions 
+
+@function em($px, $base: $desktop-font-size) {
+    @return ($px / $base) * 1em;
+}
+
+@function p($px, $parent: $wrap) {
+    @return ($px / $parent) * 100%;
+}
+
+
+// Mixins
+
+@mixin triangle ($position, $width, $height, $background){
+  content: '';
+  position: absolute;
+  width: 0; 
+  height: 0;
+  border-style: solid;
+
+  @if $position == 'top' {
+
+    border-width: 0 $width/2 $height $width/2;
+    border-color: transparent transparent $background transparent;
+
+   } @elseif $position == 'right' {
+    
+    border-width: $height/2 0 $height/2 $width;
+    border-color: transparent transparent transparent $background;
+
+   } @elseif $position == 'bottom' {
+    
+    border-width: $height $width/2 0 $width/2;
+    border-color: $background transparent transparent transparent;
+
+   } @elseif $position == 'left' {
+    
+    border-width: $height/2 $width $height/2 0;
+    border-color: transparent $background transparent transparent;
+
+   } else {
+      display: none;
+   }
+
+}
+
+@mixin wrap {
+  max-width: $wrap;
+  margin: 0 auto;
+  padding: 0 3.125%;
+  @include box-sizing(content-box);
+}
+
+@mixin col($col, $gutter: 4%) {
+    width: ( 100% - ( ($col - 1) * $gutter ) ) / $col;
+    margin-right: $gutter;
+}
+
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+        overflow: hidden; 
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin opacity($opacity) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})";
+	opacity: $opacity;
+}
+
+@mixin z {
+    //@include transform(translateZ(0));
+    -webkit-transform: translateZ(0);
+    -moz-transform:    translateZ(0);
+    -ms-transform:     translateZ(0);
+    -o-transform:      translateZ(0);
+    transform:         translateZ(0);
+}
+
+@mixin retina($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    // on retina, use image that's scaled by 2
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@mixin button {
+    position: relative;
+    display: inline-block;
+    padding: 8px 10px;
+    margin: 0 0 5px 0;
+    color: white;
+    font-family: $heading-font;
+    font-weight: normal;
+    font-size: $desktop-font-size;
+    text-decoration: none !important; /* to overwrite in slider */
+    line-height: 1.2;
+    cursor: pointer;
+    border: none;
+    border-radius: $radius;
+    background-color: $color-3;
+    outline: none !important;
+    @include appearance(none);
+    @include transition ( background 0.25s );
+
+    &:hover,
+    &:focus {
+        background-color: lighten($color-3, 10%);
+        color: white;
+        text-decoration: none;
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+    
+}
+
+@mixin button-alt {
+    background: $color-1;
+        
+    &:hover,
+    &:focus {
+        background: lighten($color-1, 10%);
+    }
+    
+}
+
+@mixin button-small {
+    font-size: 12px;
+    padding: 6px 8px;
+}
+
+@mixin inputs {
+    input[type=text],
+    input[type=url],
+    input[type=email],
+    input[type=tel],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    textarea {
+        @content;
+    } 
+}
+
+
+// Animations
+
+@include keyframes(fade-in) {
+
+	from {
+	opacity: 0;
+	}
+
+	to {
+	opacity: 1;
+	}
+
+}

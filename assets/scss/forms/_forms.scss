@@ -1,0 +1,363 @@
+/* 
+* Gravity Forms
+* Custom theme form styling
+*/
+
+select { 
+font-family: Arial, Helvetica, sans-serif; // fix chrome svg font render bug
+}
+
+/* Inputs */
+@include inputs {
+width: 48%;
+max-width:100%;
+padding: em(9px) em(12px);
+color: #646464;
+font-family: inherit;
+font-weight: normal;
+font-size: inherit;
+letter-spacing: normal;
+
+outline-style: none;
+border: 1px solid darken($grey, 10%);
+background: white;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+
+border-radius: $radius;
+
+-webkit-font-smoothing: antialiased;
+
+@include transition(border .15s ease);
+@include box-sizing(border-box);
+@include appearance(none);
+
+	&:focus {
+	border-color: lighten($color-2, 20%);	
+	}
+
+	@include placeholder { 
+		font-style: italic; 
+	}
+
+	&.placeholder {
+		font-style: italic; 
+	}
+	
+	@include media( $mobile ) {
+	    width: 100%;
+	}
+	
+}
+
+textarea {
+	width: auto;
+	
+	@include media( $mobile ) {
+	    width: 100%;
+	}
+	
+}
+
+
+.gform_wrapper {
+margin-bottom: 20px;
+
+	&:last-child {
+	margin-bottom: 0;
+	}
+
+	label.gfield_label {
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 8px;
+	}
+	
+	.gfield {
+	margin-bottom: em(18px);
+	}
+	
+	input[type=submit],
+	button { 
+	/* Styled in shortcodes.css */
+	-webkit-font-smoothing: antialiased;
+	}
+	
+	
+	/* Complex */
+	
+	.ginput_complex .ginput_left,
+	.ginput_complex .ginput_right {
+		display: block;
+	}
+	
+	@include media( $mobile ) {
+	    
+	    .ginput_complex .ginput_left {
+	    	margin-bottom: 18px;
+	    }
+	    
+	}
+	
+	@include media( $tablet-up ) {
+	
+		.ginput_complex .ginput_left,
+		.ginput_complex .ginput_right  {
+			width: 50%;
+			
+			@include inputs {
+				width: 100%;
+			}
+			
+		}
+
+		.ginput_complex .ginput_left {
+			float: left;
+			padding-right: 2%;
+		}
+		
+		.ginput_complex .ginput_right {
+			float: right;
+			padding-left: 2%;
+		}
+		
+	}
+	
+	/* List row */
+	
+	.gfield_list {
+		font-size: 0.8em;
+		
+		th {
+			padding-bottom: em(10px);
+			line-height: 1.2;
+			//vertical-align: middle;
+			padding-right: em(12px);
+		}
+		
+	}
+	
+	.gfield_list_cell {
+		padding-right: em(12px);
+		padding-bottom: em(12px);
+		
+		@include inputs {
+			width: 100%;
+		}
+		
+	}
+	
+	.gfield_list_icons {
+		width: 40px;
+		
+		img {
+			vertical-align: middle;
+		}
+		
+	}
+		
+	
+	/* Label position */
+	
+	.left_label .gfield_description {
+	padding-left: 32%;
+	}
+	
+	
+	/* Error fields */
+	
+	$error: red;
+
+	li.gfield.gfield_error {
+	
+		input[type=text],
+		input[type=url],
+		input[type=email],
+		input[type=tel],
+		input[type=number],
+		input[type=password],
+		textarea {
+		//border-color: darken($grey-light, 10%);	
+		}
+		
+	}
+	
+	li.gfield.gfield_error .gfield_description,
+	li.gfield.gfield_error table.gfield_list thead th,
+	.validation_message {
+	color: $error;
+	font-weight: normal;
+	font-size: 0.9em;
+	}
+	
+	.gfield_required {
+	color: $error;
+	font-weight: normal;
+	font-size: 0.9em;
+	vertical-align: text-bottom;
+	}
+	
+	.validation_error {
+	@extend .error;
+	}
+	
+	.gfield_description {
+	padding-top: 5px;
+	}
+	
+	.gfield_error .gfield_label {
+	color: $error;
+	}
+	
+	
+	/* Responsive */
+	
+	@include media($mobile) {
+	
+		.left_label .gfield_label {
+		float: none;
+		padding: 0;
+		width: 100%;
+		}
+		
+		.left_label .gfield_description {
+		padding-left: 0;
+		}
+		
+		.button {
+			width: 100%;
+			text-align: center;
+			padding: em(11px) em(10px);
+		}
+	
+	}
+	
+}
+
+/* Show/Hide labels */
+
+.gform_wrapper.hide-label_wrapper {
+
+	label.gfield_label {
+		display: none;
+	}
+
+}
+
+.gform_wrapper {
+
+	.gfield {
+
+		&.hide-label {
+
+			label.gfield_label {
+				display: none;
+			}
+
+		}
+
+		&.show-label {
+
+			label.gfield_label {
+				display: inline-block;
+			}
+
+		}
+
+	}
+
+}
+
+
+/* 
+* Advanced custom fields Forms
+* Custom theme form styling
+*/
+
+.acf-fields > .acf-field {
+	padding: 0;
+	margin-bottom: 18px;
+	border-top: none;
+}
+
+.acf-field {
+	
+	@include inputs {
+		width: 48%;
+	}
+	
+	textarea {
+		width: 392px;
+	}
+	
+	@include media($mobile) {
+		
+		@include inputs {
+			width: 100%;
+		}
+	
+		textarea {
+			width: 100%;
+		}
+		
+	}
+	
+ 	
+}
+
+.acf-button {
+	
+	&:focus,
+	&:active {
+		top: 1px;
+		line-height: 26px;
+	}
+	
+}
+
+.acf-form-submit {
+	
+	@include media($mobile) {
+	
+		.button {
+			width: 100%;
+			text-align: center;
+			padding: em(11px) em(10px);
+		}
+	
+	}
+	
+}
+
+.acf-ui-datepicker {
+
+	.ui-datepicker {
+	width: auto;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	
+		td {
+			
+			a {
+				padding: 0;
+			}
+			
+		}
+		
+	}
+
+}
+
+// Hide terms checkbox
+
+.acf-field {
+	
+	&[data-name="econsult_terms"] {
+		
+		input {
+			display: none;
+		}
+		
+	}
+	
+}

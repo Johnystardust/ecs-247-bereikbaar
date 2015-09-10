@@ -1,0 +1,400 @@
+/* Widget */
+
+.widget {
+	margin: 0 0 22px 0;
+	background: $grey-light;
+	
+	@include inputs {
+		width: 100%;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.widget-header {
+		padding: 9px 20px;
+		background: $color-1;
+	
+		h3 {
+			color: white;
+			margin-bottom: 0;
+		}
+
+	}
+	
+	.widget-text {
+		padding: 15px 20px 20px 20px;
+
+		.gform_wrapper {
+			font-size: 0.9em;
+		}
+
+	}
+
+	&.alt {
+
+		.widget-header {
+			background: $color-2;
+		}
+
+	}
+
+	// Widgets
+
+	// Social media - widget
+
+	&.social-media {
+
+		
+
+	}
+
+	// Recent posts - widget
+
+	&.recent-posts {
+
+		ul {
+
+			li {
+
+				
+
+			}
+		}
+
+	}
+
+	// Product - widget
+
+	.properties-ul {
+		margin-bottom: em(20px);
+		
+		li {
+			padding: em(3px) 0;
+			font-weight: bold;
+			line-height: 1.2;
+		}
+
+	}
+
+	// Opening hours - widget
+
+	.opening-hours-table {
+
+		tr {
+			
+			td {
+				padding: em(6px) 0;
+				line-height: 1.2;
+
+				&.day {
+					padding-right: em(20px);
+					font-weight: bold;
+
+					&.open {
+						
+						i {
+							color: #6EBD00;
+						}
+
+					}
+
+					&.closed {
+						
+						i {
+							color: #FF0000;
+						}
+
+					}
+
+				}
+				
+				&.hours {
+					
+				}
+
+			}
+		}
+
+	}
+
+	// Agenda - widget 
+
+	&.widget-calendar { 
+		
+		.button {
+			margin-bottom: 0;
+		}
+
+		@include media($mobile) {
+			
+			iframe {
+				display: none;
+			}
+		
+		}
+
+		@include media($tablet-up) {
+		
+			.button {
+				display: none;
+			}
+		
+		}
+
+	}
+	
+}
+
+
+/**
+* @WordPress widgets
+*
+*/
+
+// Categories, Recente berichten, Authors, Archieven, Bookmarks, Meta, Pages, Subnavi
+
+.widget.categories,
+.widget.recent-posts,
+.widget.authors,
+.widget.archives,
+.widget.bookmarks,
+.widget.meta,
+.widget.pages,
+#subnavi {
+
+	.widget-text {
+	padding: 0 !important;
+	}
+	
+	ul {
+	margin-bottom: 0 !important;
+		
+		li {
+		list-style: none !important;
+		margin-left: 0 !important;
+		//padding: 10px 20px;
+		
+			&:last-child {
+			border-bottom: none;
+			}
+			
+			a {
+				display: block;
+				padding: 14px 20px;
+				color: $black;
+				font-weight: bold;
+				font-size: em(13px);
+				border-bottom: 1px solid $grey;
+				@include transition(none);
+
+				h4 {
+					
+				}
+
+				&:hover {
+					color: white;
+					background: $color-2;
+					border-bottom-color: $color-2;
+					
+					h4 {
+						color: white;
+					}
+
+				}
+
+			}
+
+			&.current-cat,
+			&.current_page_item {
+			
+				> a {
+					color: white;
+					background: $color-2;
+					border-bottom-color: $color-2;
+					
+					h4 {
+						color: white;
+					}
+
+				}
+			
+			}
+			
+			ul.children {
+			margin-bottom: 0 !important;
+			
+				li {
+					
+					a {
+					padding-left: 30px !important;
+					font-weight: normal;
+					font-size: 0.9em;
+					}	
+					
+				}
+			
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+// Recente reacties
+
+.widget.recent-comments {
+	
+	.widget-text {
+	padding: 0 !important;
+	
+		ul {
+		margin-bottom: 0 !important;
+			
+			li {
+			border-bottom: 1px solid $grey-light;
+			list-style: none !important;
+			margin-left: 0 !important;
+			padding: 10px 20px;
+			
+				&:last-child {
+				border-bottom: none;
+				}
+				
+				a {
+				text-decoration: none;
+				font-weight: bold;
+				}
+	
+			}
+			
+		}
+		
+	}
+	
+}
+
+
+// Custom menu
+
+.widget.nav-menu {
+
+	.widget-text {
+	padding: 0 !important;
+	
+		div > ul {
+		margin-bottom: 0 !important;
+			
+			li {
+			list-style: none !important;
+			margin-left: 0 !important;
+			padding: 0;
+			
+				&:last-child {
+				border-bottom: none;
+				}
+				
+				a {
+				display: block;
+				text-decoration: none;
+				font-weight: bold;
+				border-bottom: 1px solid $grey-light;
+				padding: 10px 20px;
+				}
+				
+				&.current-menu-item {
+				
+					& > a {
+					color: darken($color-1, 30%);
+					}
+				
+				}
+				
+				ul.sub-menu {
+				margin-bottom: 0 !important;
+				
+					li {
+						
+						a {
+						padding-left: 30px !important;
+						font-weight: normal;
+						font-size: 0.9em;
+						}	
+						
+					}
+				
+				}
+	
+			}
+			
+		}
+		
+	}
+
+}
+
+
+
+// Search
+
+.widget.search {
+
+	#searchform {
+		position: relative;
+		padding-right: 75px;
+	}
+	
+}
+
+#searchsubmit {
+	@include button;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: em(11px) em(10px);
+	margin-bottom: 0;
+	
+	@include media( $tablet-down ) {
+	    padding: em(10px) em(10px);
+	}
+	
+}
+
+
+// Calender
+
+.widget.calendar {
+
+	#wp-calendar {
+	width: 100%;
+	text-align: center;
+	
+		caption {
+		font-weight: bold;
+		}
+		
+		thead {
+		color: white;
+		background: $color-1;
+		}
+	
+		tbody {
+	
+			td {
+			padding: 5px;
+			border: 1px solid $grey-light;
+			
+				&.pad {
+				border: none;	
+				}
+				
+			}
+			
+		}
+	
+	}
+
+}

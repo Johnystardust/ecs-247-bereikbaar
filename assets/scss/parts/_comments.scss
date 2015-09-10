@@ -1,0 +1,108 @@
+/**
+* @WP - Comments
+*
+*/
+
+.comments-title {
+@extend h2;
+margin-bottom: 10px;
+}
+
+// Comments list
+
+.comment {
+font-size: 13px;
+padding-bottom: em(12px, 11px);
+margin-bottom: em(12px, 11px);
+border-bottom: 1px solid $grey;
+@include clearfix;
+	
+	.comment-text {
+	// display: table-cell;
+	
+		.comment-title {
+		display: block;
+		font-weight: 600;
+		margin-bottom: em(3px, 11px);
+		
+			a {
+			color: inherit;
+			font-weight: bold;
+			text-decoration: none;
+				
+				&:hover {
+					text-decoration: underline;
+				}
+				
+			}
+			
+		}
+		
+		p {
+			padding-bottom: 1em;
+		}
+		
+	}
+	
+	.comment-utilities {
+	display: table-cell;
+	
+		.delete-comment {
+		@include button;
+		@include button-alt;
+		@include button-small;
+		}
+	
+	}
+	
+}
+
+
+// Add comment
+
+#respond {
+@include clearfix;
+position: static;
+margin: 0;
+width: auto;
+padding: 15px 0 0;
+background: transparent none;
+border: 0;
+
+	#reply-title {
+	@extend h2;
+	}
+
+	p {
+	margin: 0 0 15px;
+	padding-bottom: 0;
+	
+		&.comment-form-rating {
+		margin-bottom: 0;
+		}
+	
+		label {
+		margin-bottom: 3px;
+		font-weight: bold;	
+		}
+		
+		input,
+		textarea {
+		display: block;
+		}
+		
+	}
+	
+	textarea {
+	width: 100%;
+	}
+	
+	.form-submit {
+		
+		#comment-button {
+		@include button;
+		}
+		
+	}
+	
+}

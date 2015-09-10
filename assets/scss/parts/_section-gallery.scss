@@ -1,0 +1,81 @@
+$border-width: 5px;
+
+.section-cols-gallery {
+
+	.cols-gallery {
+		@include clearfix;
+
+		.gallery-link {
+			display: block;
+			border: $border-width solid darken($grey-light, 5%);
+
+			img {
+				display: block;
+				width: 100%;
+			}
+
+			html.opacity & {
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: $border-width;
+					right: $border-width;
+					bottom: $border-width;
+					left: $border-width;
+					background: $color-2;
+					@include opacity(0);
+					@include z;
+					@include transition( opacity 0.25s );
+				}
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 50%; margin-top: -21px;
+					left: 50%; margin-left: -18px;
+					color: white;
+					font-size: 42px;
+					line-height: 1;
+					@include opacity(0);
+					//@include transform( scale(0.5) );
+					-webkit-transform: scale(0.5);
+					-moz-transform:    scale(0.5);
+					-ms-transform:     scale(0.5);
+					-o-transform:      scale(0.5);
+					transform:         scale(0.5);
+					
+					@include transition( all 0.25s cubic-bezier( .34,1.24,.53,1.68 ) );
+					@extend .fa:before;
+					@extend .fa-plus-circle:before;
+				}
+
+			}
+
+			&:hover {
+
+				html.opacity & {
+				
+					&:before {
+						@include opacity(0.8);
+					}
+
+					&:after {
+						@include opacity(1);
+						//@include transform( scale(1) );
+						-webkit-transform: scale(1);
+					    -moz-transform:    scale(1);
+					    -ms-transform:     scale(1);
+					    -o-transform:      scale(1);
+					    transform:         scale(1);
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

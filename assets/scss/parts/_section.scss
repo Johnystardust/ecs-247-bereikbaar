@@ -1,0 +1,38 @@
+.section {
+	
+	&.has-border {
+		border-bottom: 2px solid $grey;
+	}
+
+	&.light-background {
+		background: $grey-light;
+
+		.box {
+			background: white;
+		}
+		
+	}
+
+	.section-content {
+		padding: em(20px) 0;
+		@include clearfix;
+	}
+
+	.section-intro {
+		margin-bottom: em(30px);
+
+		&.center {
+			text-align: center;
+		}
+
+		h1 {
+			margin-bottom: 0.35em;
+		}
+
+		p {
+			font-size: em(16px);
+		}
+
+	}
+
+}
